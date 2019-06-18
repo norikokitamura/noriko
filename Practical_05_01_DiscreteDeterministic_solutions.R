@@ -19,7 +19,7 @@ times_lf <- seq(0, 365)
 
 parms_lf <- c(a = 0.953, b = 0.05)
 
-f_lf <- function(t, y, parms){
+f_lf <- function(t, y, parms){   # the component in function can be any name.
     parms["a"]*y + parms["b"]*(1 - cos(2*pi*t/28))
 }
 
@@ -27,7 +27,7 @@ N_lf <- matrix(data = NA, ncol = 1, nrow = length(times_lf))
 N_lf[1] <- 0.03
 
 for (i in 1:(length(times) - 1)){
-    N_lf[i+1] <- f_lf(times_lf[i], N_lf[i], parms_lf)
+    N_lf[i+1] <- f_lf(times_lf[i], N_lf[i], parms_lf)  #function (t, y, parms)
 }
 
 plot(times_lf, N_lf, type = "l")
